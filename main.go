@@ -1,10 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
-	"os"
 	"time"
 
 	"github.com/gocolly/colly/v2"
@@ -36,26 +34,26 @@ func main() {
 
 	// })
 
-	matches := []Matches{}
+	// matches := []Matches{}
 
-	c.OnHTML("div.cb-col-100.cb-col", func(h *colly.HTMLElement) {
-		i := Matches{
-			Type:     h.ChildText("a.cb-col-33.cb-col.cb-mtchs-dy.text-bold"),
-			Match:    h.ChildText("div.cb-ovr-flo.cb-col-60.cb-col.cb-mtchs-d-vnu.cb-adjst-lst"),
-			Location: h.ChildText("span[itemprop=name]"),
-			Time:     h.ChildText("div.cb-col-40.cb-col.cb-mtchs-dy-tm.cb-adjst-lst"),
-		}
-		matches = append(matches, i)
-	})
-
-	// c.OnHTML("div.cb-col-67.cb-col", func(h *colly.HTMLElement) {
-	// 	// match := h.ChildAttr("a", "title")
-	// 	// fmt.Println(match)
-	// 	match := h.ChildText("div.cb-ovr-flo.cb-col-60.cb-col.cb-mtchs-dy-vnu.cb-adjst-lst")
-	// 	fmt.Println(match)
-	// 	// location := h.ChildText("div.cb-font-12.text-gray.cb-ovr-flo")
-	// 	// fmt.Println(location)
+	// c.OnHTML("div.cb-col-100.cb-col", func(h *colly.HTMLElement) {
+	// 	i := Matches{
+	// 		Type:     h.ChildText("a.cb-col-33.cb-col.cb-mtchs-dy.text-bold"),
+	// 		Match:    h.ChildText("div.cb-ovr-flo.cb-col-60.cb-col.cb-mtchs-d-vnu.cb-adjst-lst"),
+	// 		Location: h.ChildText("span[itemprop=name]"),
+	// 		Time:     h.ChildText("div.cb-col-40.cb-col.cb-mtchs-dy-tm.cb-adjst-lst"),
+	// 	}
+	// 	matches = append(matches, i)
 	// })
+
+	c.OnHTML("div.cb-col-67.cb-col", func(h *colly.HTMLElement) {
+		// match := h.ChildAttr("a", "title")
+		// fmt.Println(match)
+		match := h.ChildText("div.cb-ovr-flo.cb-col-60.cb-col.cb-mtchs-dy-vnu.cb-adjst-lst")
+		fmt.Println(match)
+		location := h.ChildText("div.cb-font-12.text-gray.cb-ovr-flo")
+		fmt.Println(location)
+	})
 
 	// Set error handler
 	c.OnError(func(r *colly.Response, err error) {
@@ -67,16 +65,16 @@ func main() {
 		log.Fatal(err)
 	}
 
-	data, err := json.MarshalIndent(matches, " ", "")
-	if err != nil {
-		log.Fatal(err)
-	}
+	// data, err := json.MarshalIndent(matches, " ", "")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	err = os.WriteFile("./matches.json", data, 0644)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(string(data))
+	// err = os.WriteFile("./matches.json", data, 0644)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Println(string(data))
 
 }
 
