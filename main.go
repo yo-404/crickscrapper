@@ -11,10 +11,12 @@ import (
 )
 
 type Matches struct {
-	// Type     string `json:"type"`
-	// Match    string `json:"match"`
+	Type       string `json:"type"`
+	Tournament string `json:"tournament"`
 	// Location string `json:"location"`
-	Time string `json:"time"`
+	Date   string `json:"date"`
+	Result string `json:"result"`
+	Time   string `json:"time"`
 }
 
 func main() {
@@ -25,11 +27,17 @@ func main() {
 
 	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
 		i := Matches{
-			h.ChildText("div.ds-text-compact-xs.ds-font-bold.ds-w-24"),
+			Date:       h.ChildText("div.ds-text-compact-xs.ds-font-bold.ds-w-24"),
+			Type:       h.ChildText("span.ds-text-tight-s.ds-font-medium.ds-text-typo"),
+			Tournament: h.ChildText("span.ds-text-tight-s.ds-font-regular.ds-text-typo.ds-underline.ds-decoration-ui-stroke"),
+			Result:     h.ChildText("p.ds-text-tight-s.ds-font-regular.ds-line-clamp-2.ds-text-typo"),
+			Time:       h.ChildText("span.ds-text-tight-xs"),
+
 			// fmt.Println(Time)
 			// Match := h.ChildAttr("span[]", "title")
 			// fmt.Println(Match)
 		}
+
 		matches = append(matches, i)
 
 	})
@@ -39,8 +47,21 @@ func main() {
 		// fmt.Println(h.Text)
 		// text := h.ChildText("div[class=ds-text-compact-xs ds-font-bold ds-w-24]")
 		// fmt.Println(text)
-		date := h.ChildText("div.ds-text-compact-xs.ds-font-bold.ds-w-24")
-		fmt.Println(date)
+		// date := h.ChildText("div.ds-text-compact-xs.ds-font-bold.ds-w-24")
+		// fmt.Println(date)
+		// match := h.ChildText()
+		// fmt.Println(match)
+		// Test := h.ChildAttr("a.ds-inline-flex.ds-items-start.ds-leading-none.!ds-inline", "title")
+		// fmt.Println(Test)
+	})
+
+	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
+		// test := h.ChildText("div.ds-text-tight-s.ds-font-regular.ds-truncate.ds-text-typo-mid3#text")
+		// fmt.Println(test)
+		// test := h.ChildText("span.ds-text-tight-s.ds-font-regular.ds-text-typo.ds-underline.ds-decoration-ui-stroke")
+		// fmt.Println(test)
+		// test1 := h.ChildText("span.ds-text-tight-xs")
+		// fmt.Println(test1)
 	})
 
 	c.OnError(func(r *colly.Response, err error) {
@@ -61,6 +82,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	fmt.Println(string(data))
 
 }
