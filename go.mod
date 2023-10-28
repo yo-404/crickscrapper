@@ -1,4 +1,4 @@
-module cricscrapper
+module github.com/yo-404/crickscrapper
 
 go 1.21.0
 

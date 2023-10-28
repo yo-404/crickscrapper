@@ -4,8 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"net/url"
 	"os"
 	"time"
+
+	"github.com/yo-404/crickscrapper/crawler"
 
 	"github.com/gocolly/colly/v2"
 )
@@ -24,6 +27,8 @@ func main() {
 	c := colly.NewCollector()
 
 	matches := []Matches{}
+
+	crawler.ScrapforTeam("india-6")
 
 	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
 		i := Matches{
@@ -55,14 +60,16 @@ func main() {
 		// fmt.Println(Test)
 	})
 
-	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
-		// test := h.ChildText("div.ds-text-tight-s.ds-font-regular.ds-truncate.ds-text-typo-mid3#text")
-		// fmt.Println(test)
-		// test := h.ChildText("span.ds-text-tight-s.ds-font-regular.ds-text-typo.ds-underline.ds-decoration-ui-stroke")
-		// fmt.Println(test)
-		// test1 := h.ChildText("span.ds-text-tight-xs")
-		// fmt.Println(test1)
-	})
+	// c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
+	// test := h.ChildText("div.ds-text-tight-s.ds-font-regular.ds-truncate.ds-text-typo-mid3#text")
+	// fmt.Println(test)
+	// test := h.ChildText("span.ds-text-tight-s.ds-font-regular.ds-text-typo.ds-underline.ds-decoration-ui-stroke")
+	// fmt.Println(test)
+	// 	test := h.ChildText("p.ds-text-tight-m.ds-font-bold.ds-capitalize.ds-truncate")
+	// 	i := 1
+	// 	fmt.Printf(" Team %d : %v \t", i, test)
+	// 	i++
+	// })
 
 	c.OnError(func(r *colly.Response, err error) {
 		fmt.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
@@ -92,4 +99,20 @@ func timer(name string) func() {
 	return func() {
 		fmt.Printf("%s Scrapping took %v", name, time.Since(start))
 	}
+}
+
+func ScrapforTeam(team string) {
+	parsedURL, err := url.Parse("https://www.espncricinfo.com/team/teamname/match-schedule-fixtures-and-results")
+	if err != nil {
+		fmt.Println("Error parsing URL:", err)
+		return
+	}
+
+	queryValues := parsedURL.Query()
+	queryValues.Set("teamname", team)
+
+	parsedURL.RawQuery = queryValues.Encode()
+	modifiedURL := parsedURL.String()
+	fmt.Println("Modified URL:", modifiedURL)
+
 }
