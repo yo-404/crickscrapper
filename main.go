@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"net/url"
 	"os"
 	"time"
 
@@ -28,7 +27,7 @@ func main() {
 
 	matches := []Matches{}
 
-	crawler.ScrapforTeam("india-6")
+	CrawlURL := crawler.ScrapforTeam()
 
 	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
 		i := Matches{
@@ -75,7 +74,7 @@ func main() {
 		fmt.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
 
-	err := c.Visit("https://www.espncricinfo.com/team/india-6/match-schedule-fixtures-and-results")
+	err := c.Visit(CrawlURL)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -99,20 +98,4 @@ func timer(name string) func() {
 	return func() {
 		fmt.Printf("%s Scrapping took %v", name, time.Since(start))
 	}
-}
-
-func ScrapforTeam(team string) {
-	parsedURL, err := url.Parse("https://www.espncricinfo.com/team/teamname/match-schedule-fixtures-and-results")
-	if err != nil {
-		fmt.Println("Error parsing URL:", err)
-		return
-	}
-
-	queryValues := parsedURL.Query()
-	queryValues.Set("teamname", team)
-
-	parsedURL.RawQuery = queryValues.Encode()
-	modifiedURL := parsedURL.String()
-	fmt.Println("Modified URL:", modifiedURL)
-
 }
