@@ -1,191 +1,442 @@
 [
  {
- "type": "1st ODI (D/N)",
- "tournament": "Afghanistan tour of Bangladesh",
- "date": "Wed, 05 Jul '23",
- "result": "Afghanistan won by 17 runs (DLS method)",
- "time": "RESULT"
- },
- {
- "type": "2nd ODI (D/N)",
- "tournament": "Afghanistan tour of Bangladesh",
- "date": "Sat, 08 Jul '23",
- "result": "Afghanistan won by 142 runs",
- "time": "RESULT"
- },
- {
- "type": "3rd ODI (D/N)",
- "tournament": "Afghanistan tour of Bangladesh",
- "date": "Tue, 11 Jul '23",
- "result": "Bangladesh won by 7 wickets (with 159 balls remaining)",
- "time": "RESULT"
- },
- {
- "type": "1st T20I (D/N)",
- "tournament": "Afghanistan tour of Bangladesh",
- "date": "Fri, 14 Jul '23",
- "result": "Bangladesh won by 2 wickets (with 1 ball remaining)",
- "time": "RESULT"
- },
- {
- "type": "2nd T20I (D/N)",
- "tournament": "Afghanistan tour of Bangladesh",
- "date": "Sun, 16 Jul '23",
- "result": "Bangladesh won by 6 wickets (with 5 balls remaining) (DLS method)",
- "time": "RESULT"
- },
- {
- "type": "1st ODI (D/N)",
- "tournament": "Afghanistan tour of Sri Lanka [Aug 2023]",
- "date": "Tue, 22 Aug '23",
- "result": "Pakistan won by 142 runs",
- "time": "RESULT"
- },
- {
- "type": "2nd ODI (D/N)",
- "tournament": "Afghanistan tour of Sri Lanka [Aug 2023]",
- "date": "Thu, 24 Aug '23",
- "result": "Pakistan won by 1 wicket (with 1 ball remaining)",
- "time": "RESULT"
- },
- {
- "type": "3rd ODI (D/N)",
- "tournament": "Afghanistan tour of Sri Lanka [Aug 2023]",
- "date": "Sat, 26 Aug '23",
- "result": "Pakistan won by 59 runs",
- "time": "RESULT"
- },
- {
- "type": "4th Match, Group B (D/N)",
+ "match": "3rd Match, Group A (D/N)",
  "tournament": "Asia Cup",
- "date": "Sun, 03 Sep '23",
- "result": "Bangladesh won by 89 runs",
- "time": "RESULT"
+ "location": "Pallekele",
+ "date": "Sat, 02 Sep '23",
+ "result": "No result",
+ "score": "(48.5/50 ov) 266",
+ "time": "NO RESULT",
+ "opponent": "Pakistan"
  },
  {
- "type": "6th Match, Group B (D/N)",
+ "match": "5th Match, Group A (D/N)",
  "tournament": "Asia Cup",
- "date": "Tue, 05 Sep '23",
- "result": "Sri Lanka won by 2 runs",
- "time": "RESULT"
+ "location": "Pallekele",
+ "date": "Mon, 04 Sep '23",
+ "result": "India won by 10 wickets (with 17 balls remaining) (DLS method)",
+ "score": "230(20.1/23 ov, T:145) 147/0",
+ "time": "RESULT DECLARED",
+ "opponent": "Nepal"
  },
  {
- "type": "Warm-up (D/N)",
- "tournament": "ICC Cricket World Cup Warm-up Matches",
- "date": "Fri, 29 Sep '23",
- "result": "Match abandoned without a ball bowled",
- "time": "ABANDONED"
+ "match": "9th Match, Super Four (D/N)",
+ "tournament": "Asia Cup",
+ "location": "Colombo (RPS)",
+ "date": "Sun, 10 Sep '23",
+ "result": "India won by 228 runs",
+ "score": "356/2(32/50 ov, T:357) 128",
+ "time": "RESULT DECLARED",
+ "opponent": "Pakistan"
  },
  {
- "type": "Warm-up (D/N)",
+ "match": "10th Match, Super Four (D/N)",
+ "tournament": "Asia Cup",
+ "location": "Colombo (RPS)",
+ "date": "Tue, 12 Sep '23",
+ "result": "India won by 41 runs",
+ "score": "213(41.3/50 ov, T:214) 172",
+ "time": "RESULT DECLARED",
+ "opponent": "Sri Lanka"
+ },
+ {
+ "match": "12th Match, Super Four (D/N)",
+ "tournament": "Asia Cup",
+ "location": "Colombo (RPS)",
+ "date": "Fri, 15 Sep '23",
+ "result": "Bangladesh won by 6 runs",
+ "score": "265/8(49.5/50 ov, T:266) 259",
+ "time": "RESULT DECLARED",
+ "opponent": "Bangladesh"
+ },
+ {
+ "match": "Final (D/N)",
+ "tournament": "Asia Cup",
+ "location": "Colombo (RPS)",
+ "date": "Sun, 17 Sep '23",
+ "result": "India won by 10 wickets (with 263 balls remaining)",
+ "score": "50(6.1/50 ov, T:51) 51/0",
+ "time": "RESULT DECLARED",
+ "opponent": "Sri Lanka"
+ },
+ {
+ "match": "1st ODI (D/N)",
+ "tournament": "Australia tour of India",
+ "location": "Mohali",
+ "date": "Fri, 22 Sep '23",
+ "result": "India won by 5 wickets (with 8 balls remaining)",
+ "score": "276(48.4/50 ov, T:277) 281/5",
+ "time": "RESULT DECLARED",
+ "opponent": "Australia"
+ },
+ {
+ "match": "2nd ODI (D/N)",
+ "tournament": "Australia tour of India",
+ "location": "Indore",
+ "date": "Sun, 24 Sep '23",
+ "result": "India won by 99 runs (DLS method)",
+ "score": "399/5(28.2/33 ov, T:317) 217",
+ "time": "RESULT DECLARED",
+ "opponent": "Australia"
+ },
+ {
+ "match": "3rd ODI (D/N)",
+ "tournament": "Australia tour of India",
+ "location": "Rajkot",
+ "date": "Wed, 27 Sep '23",
+ "result": "Australia won by 66 runs",
+ "score": "352/7(49.4/50 ov, T:353) 286",
+ "time": "RESULT DECLARED",
+ "opponent": "Australia"
+ },
+ {
+ "match": "Warm-up (D/N)",
  "tournament": "ICC Cricket World Cup Warm-up Matches",
+ "location": "Guwahati",
+ "date": "Sat, 30 Sep '23",
+ "result": "No result (abandoned with a toss)",
+ "score": "",
+ "time": "NO RESULT",
+ "opponent": "England"
+ },
+ {
+ "match": "1st Quarter-Final",
+ "tournament": "Asian Games Men's Cricket Competition",
+ "location": "Hangzhou",
  "date": "Tue, 03 Oct '23",
- "result": "Afghanistan won by 6 wickets (with 23 balls remaining) (DLS method)",
- "time": "RESULT"
+ "result": "India won by 23 runs",
+ "score": "202/4(20 ov, T:203) 179/9",
+ "time": "RESULT DECLARED",
+ "opponent": "Nepal"
  },
  {
- "type": "3rd Quarter-Final",
- "tournament": "Asian Games Men's Cricket Competition",
- "date": "Wed, 04 Oct '23",
- "result": "Afghanistan won by 8 runs",
- "time": "RESULT"
- },
- {
- "type": "2nd Semi-Final",
- "tournament": "Asian Games Men's Cricket Competition",
- "date": "Fri, 06 Oct '23",
- "result": "Afghanistan won by 4 wickets (with 13 balls remaining)",
- "time": "RESULT"
- },
- {
- "type": "3rd Match",
- "tournament": "ICC Cricket World Cup",
- "date": "Sat, 07 Oct '23",
- "result": "Bangladesh won by 6 wickets (with 92 balls remaining)",
- "time": "RESULT"
- },
- {
- "type": "Final",
- "tournament": "Asian Games Men's Cricket Competition",
+ "match": "Warm-up (D/N)",
+ "tournament": "ICC Cricket World Cup Warm-up Matches",
+ "location": "Thiruvananthapuram",
  "date": "",
- "result": "Gold medal match - No result",
- "time": "NO RESULT"
+ "result": "Match abandoned without a ball bowled",
+ "score": "",
+ "time": "ABANDONED",
+ "opponent": "Netherlands"
  },
  {
- "type": "9th Match (D/N)",
+ "match": "1st Semi-Final",
+ "tournament": "Asian Games Men's Cricket Competition",
+ "location": "Hangzhou",
+ "date": "Fri, 06 Oct '23",
+ "result": "India won by 9 wickets (with 64 balls remaining)",
+ "score": "96/9(9.2/20 ov, T:97) 97/1",
+ "time": "RESULT DECLARED",
+ "opponent": "Bangladesh"
+ },
+ {
+ "match": "Final",
+ "tournament": "Asian Games Men's Cricket Competition",
+ "location": "Hangzhou",
+ "date": "Sat, 07 Oct '23",
+ "result": "Gold medal match - No result",
+ "score": "(18.2/20 ov) 112/5",
+ "time": "NO RESULT",
+ "opponent": "Afghanistan"
+ },
+ {
+ "match": "5th Match (D/N)",
  "tournament": "ICC Cricket World Cup",
+ "location": "Chennai",
+ "date": "Sun, 08 Oct '23",
+ "result": "India won by 6 wickets (with 52 balls remaining)",
+ "score": "199(41.2/50 ov, T:200) 201/4",
+ "time": "RESULT DECLARED",
+ "opponent": "Australia"
+ },
+ {
+ "match": "9th Match (D/N)",
+ "tournament": "ICC Cricket World Cup",
+ "location": "Delhi",
  "date": "Wed, 11 Oct '23",
  "result": "India won by 8 wickets (with 90 balls remaining)",
- "time": "RESULT"
+ "score": "272/8(35/50 ov, T:273) 273/2",
+ "time": "RESULT DECLARED",
+ "opponent": "Afghanistan"
  },
  {
- "type": "13th Match (D/N)",
+ "match": "12th Match (D/N)",
  "tournament": "ICC Cricket World Cup",
- "date": "Sun, 15 Oct '23",
- "result": "Afghanistan won by 69 runs",
- "time": "RESULT"
+ "location": "Ahmedabad",
+ "date": "Sat, 14 Oct '23",
+ "result": "India won by 7 wickets (with 117 balls remaining)",
+ "score": "191(30.3/50 ov, T:192) 192/3",
+ "time": "RESULT DECLARED",
+ "opponent": "Pakistan"
  },
  {
- "type": "16th Match (D/N)",
+ "match": "17th Match (D/N)",
  "tournament": "ICC Cricket World Cup",
- "date": "Wed, 18 Oct '23",
- "result": "New Zealand won by 149 runs",
- "time": "RESULT"
+ "location": "Pune",
+ "date": "Thu, 19 Oct '23",
+ "result": "India won by 7 wickets (with 51 balls remaining)",
+ "score": "256/8(41.3/50 ov, T:257) 261/3",
+ "time": "RESULT DECLARED",
+ "opponent": "Bangladesh"
  },
  {
- "type": "22nd Match (D/N)",
+ "match": "21st Match (D/N)",
  "tournament": "ICC Cricket World Cup",
- "date": "Mon, 23 Oct '23",
- "result": "Afghanistan won by 8 wickets (with 6 balls remaining)",
- "time": "RESULT"
+ "location": "Dharamsala",
+ "date": "Sun, 22 Oct '23",
+ "result": "India won by 4 wickets (with 12 balls remaining)",
+ "score": "273(48/50 ov, T:274) 274/6",
+ "time": "RESULT DECLARED",
+ "opponent": "New Zealand"
  },
  {
- "type": "30th Match (D/N)",
+ "match": "29th Match (D/N)",
  "tournament": "ICC Cricket World Cup",
- "date": "Mon, 30 Oct '23",
+ "location": "Lucknow",
+ "date": "Sun, 29 Oct '23",
+ "result": "India won by 100 runs",
+ "score": "229/9(34.5/50 ov, T:230) 129",
+ "time": "RESULT DECLARED",
+ "opponent": "England"
+ },
+ {
+ "match": "33rd Match (D/N)",
+ "tournament": "ICC Cricket World Cup",
+ "location": "Wankhede",
+ "date": "Thu, 02 Nov '23",
  "result": "Match yet to begin",
- "time": "8:30 am GMT | 2:00 pm Local"
+ "score": "",
+ "time": "8:30 am GMT | 2:00 pm Local",
+ "opponent": "Sri Lanka"
  },
  {
- "type": "34th Match (D/N)",
+ "match": "37th Match (D/N)",
  "tournament": "ICC Cricket World Cup",
- "date": "Fri, 03 Nov '23",
+ "location": "Eden Gardens",
+ "date": "Sun, 05 Nov '23",
  "result": "Match yet to begin",
- "time": "8:30 am GMT | 2:00 pm Local"
+ "score": "",
+ "time": "8:30 am GMT | 2:00 pm Local",
+ "opponent": "South Africa"
  },
  {
- "type": "39th Match (D/N)",
+ "match": "45th Match (D/N)",
  "tournament": "ICC Cricket World Cup",
- "date": "Tue, 07 Nov '23",
+ "location": "Bengaluru",
+ "date": "Sun, 12 Nov '23",
  "result": "Match yet to begin",
- "time": "8:30 am GMT | 2:00 pm Local"
+ "score": "",
+ "time": "8:30 am GMT | 2:00 pm Local",
+ "opponent": "Netherlands"
  },
  {
- "type": "42nd Match (D/N)",
- "tournament": "ICC Cricket World Cup",
- "date": "Fri, 10 Nov '23",
+ "match": "1st T20I (N)",
+ "tournament": "Australia tour of India",
+ "location": "Visakhapatnam",
+ "date": "Thu, 23 Nov '23",
  "result": "Match yet to begin",
- "time": "8:30 am GMT | 2:00 pm Local"
+ "score": "",
+ "time": "1:30 pm GMT | 7:00 pm Local",
+ "opponent": "Australia"
  },
  {
- "type": "1st T20I",
+ "match": "2nd T20I (N)",
+ "tournament": "Australia tour of India",
+ "location": "Thiruvananthapuram",
+ "date": "Sun, 26 Nov '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "1:30 pm GMT | 7:00 pm Local",
+ "opponent": "Australia"
+ },
+ {
+ "match": "3rd T20I (N)",
+ "tournament": "Australia tour of India",
+ "location": "Guwahati",
+ "date": "Tue, 28 Nov '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "1:30 pm GMT | 7:00 pm Local",
+ "opponent": "Australia"
+ },
+ {
+ "match": "4th T20I (N)",
+ "tournament": "Australia tour of India",
+ "location": "Nagpur",
+ "date": "Fri, 01 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "1:30 pm GMT | 7:00 pm Local",
+ "opponent": "Australia"
+ },
+ {
+ "match": "5th T20I (N)",
+ "tournament": "Australia tour of India",
+ "location": "Hyderabad",
+ "date": "Sun, 03 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "1:30 pm GMT | 7:00 pm Local",
+ "opponent": "Australia"
+ },
+ {
+ "match": "1st T20I",
+ "tournament": "India tour of South Africa",
+ "location": "Durban",
+ "date": "Sun, 10 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "8:00 am GMT | 10:00 am Local",
+ "opponent": "South Africa"
+ },
+ {
+ "match": "2nd T20I",
+ "tournament": "India tour of South Africa",
+ "location": "Gqeberha",
+ "date": "Tue, 12 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "8:00 am GMT | 10:00 am Local",
+ "opponent": "South Africa"
+ },
+ {
+ "match": "3rd T20I",
+ "tournament": "India tour of South Africa",
+ "location": "Johannesburg",
+ "date": "Thu, 14 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "8:00 am GMT | 10:00 am Local",
+ "opponent": "South Africa"
+ },
+ {
+ "match": "1st ODI",
+ "tournament": "India tour of South Africa",
+ "location": "Johannesburg",
+ "date": "Sun, 17 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "8:00 am GMT | 10:00 am Local",
+ "opponent": "South Africa"
+ },
+ {
+ "match": "2nd ODI",
+ "tournament": "India tour of South Africa",
+ "location": "Gqeberha",
+ "date": "Tue, 19 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "8:00 am GMT | 10:00 am Local",
+ "opponent": "South Africa"
+ },
+ {
+ "match": "3rd ODI",
+ "tournament": "India tour of South Africa",
+ "location": "Paarl",
+ "date": "Thu, 21 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "8:00 am GMT | 10:00 am Local",
+ "opponent": "South Africa"
+ },
+ {
+ "match": "1st Test",
+ "tournament": "ICC World Test Championship",
+ "location": "Centurion",
+ "date": "Tue, 26 Dec '23",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "8:00 am GMT | 10:00 am Local",
+ "opponent": "South Africa"
+ },
+ {
+ "match": "2nd Test",
+ "tournament": "ICC World Test Championship",
+ "location": "Cape Town",
+ "date": "Wed, 03 Jan '24",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "8:00 am GMT | 10:00 am Local",
+ "opponent": "South Africa"
+ },
+ {
+ "match": "1st T20I",
  "tournament": "Afghanistan tour of India",
+ "location": "Mohali",
  "date": "Thu, 11 Jan '24",
  "result": "Match yet to begin",
- "time": "3:30 am GMT | 9:00 am Local"
+ "score": "",
+ "time": "3:30 am GMT | 9:00 am Local",
+ "opponent": "Afghanistan"
  },
  {
- "type": "2nd T20I",
+ "match": "2nd T20I",
  "tournament": "Afghanistan tour of India",
+ "location": "Indore",
  "date": "Sun, 14 Jan '24",
  "result": "Match yet to begin",
- "time": "3:30 am GMT | 9:00 am Local"
+ "score": "",
+ "time": "3:30 am GMT | 9:00 am Local",
+ "opponent": "Afghanistan"
  },
  {
- "type": "3rd T20I",
+ "match": "3rd T20I",
  "tournament": "Afghanistan tour of India",
+ "location": "Bengaluru",
  "date": "Wed, 17 Jan '24",
  "result": "Match yet to begin",
- "time": "3:30 am GMT | 9:00 am Local"
+ "score": "",
+ "time": "3:30 am GMT | 9:00 am Local",
+ "opponent": "Afghanistan"
+ },
+ {
+ "match": "1st Test",
+ "tournament": "ICC World Test Championship",
+ "location": "Hyderabad",
+ "date": "Thu, 25 Jan '24",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "4:00 am GMT | 9:30 am Local",
+ "opponent": "England"
+ },
+ {
+ "match": "2nd Test",
+ "tournament": "ICC World Test Championship",
+ "location": "Visakhapatnam",
+ "date": "Fri, 02 Feb '24",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "4:00 am GMT | 9:30 am Local",
+ "opponent": "England"
+ },
+ {
+ "match": "3rd Test",
+ "tournament": "ICC World Test Championship",
+ "location": "Rajkot",
+ "date": "Thu, 15 Feb '24",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "4:00 am GMT | 9:30 am Local",
+ "opponent": "England"
+ },
+ {
+ "match": "4th Test",
+ "tournament": "ICC World Test Championship",
+ "location": "Ranchi",
+ "date": "Fri, 23 Feb '24",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "4:00 am GMT | 9:30 am Local",
+ "opponent": "England"
+ },
+ {
+ "match": "5th Test",
+ "tournament": "ICC World Test Championship",
+ "location": "Dharamsala",
+ "date": "Thu, 07 Mar '24",
+ "result": "Match yet to begin",
+ "score": "",
+ "time": "4:00 am GMT | 9:30 am Local",
+ "opponent": "England"
  }
  ]
