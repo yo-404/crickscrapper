@@ -1,6 +1,11 @@
 package crawler
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+
+	"github.com/gocolly/colly"
+)
 
 func ScrapforTeam() (string, string) {
 	baseURL := "https://www.espncricinfo.com/team/"
@@ -103,4 +108,22 @@ func ScrapforTeam() (string, string) {
 	mainURl = baseURL + Team + varURL
 	fmt.Println(mainURl)
 	return mainURl, Teamname
+}
+
+func SelectSeriesType() string {
+	FutureTournaments := "https://www.espncricinfo.com/ci/content/match/fixtures_futures.html"
+	c := colly.NewCollector()
+	c.OnError(func(r *colly.Response, err error) {
+		fmt.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
+	})
+
+	err := c.Visit(FutureTournaments)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	c.OnHTML("div.divleft", func(h *colly.HTMLElement) {
+		fmt.Println(h.Text)
+	})
+	return FutureTournaments
 }
