@@ -62,13 +62,6 @@ func SearchBySeries() string {
 		log.Fatal(err)
 	}
 
-	// err = os.WriteFile("./series.json", data1, 0644)
-	// if err != nil {
-	// 	panic(err)
-	// }
-
-	// fmt.Println(string(data1))
-
 	var seriesData []SeriesInfo
 	err = json.Unmarshal([]byte(data1), &seriesData)
 	if err != nil {

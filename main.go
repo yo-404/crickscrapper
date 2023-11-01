@@ -15,6 +15,7 @@ func main() {
 	fmt.Println("Select How would you like to scrap the data")
 	fmt.Println("1. By Series Name")
 	fmt.Println("2. By International Teams")
+	fmt.Println("3. World Cup 2023")
 	fmt.Print("Enter your choice (1/2/3..): ")
 	fmt.Scan(&choice)
 
@@ -26,6 +27,9 @@ func main() {
 	case 2:
 		CrawlURL, Teamname := crawler.ScrapforTeam()
 		Fixture.ByTeamInternational(Teamname, CrawlURL)
+	case 3:
+		CrawlURL:="https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856/match-schedule-fixtures-and-results"
+		Fixture.CrawlerForSeries(CrawlURL)
 
 	default:
 		fmt.Println("More Options comming soon ..Till then pls work out with the above options")
