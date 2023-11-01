@@ -119,7 +119,7 @@ func ScrapforSeries(seriesname string) string {
 
 }
 
-func CrawlerForSeries(CrawlUrl string) {
+func CrawlerForSeries(CrawlUrl string) byte[]{
 	matches := []model.SeriesInfo{}
 	c := colly.NewCollector()
 	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
@@ -178,10 +178,13 @@ func CrawlerForSeries(CrawlUrl string) {
 		log.Fatal(err)
 	}
 
-	err = os.WriteFile("./seriesinfo.json", data, 0644)
-	if err != nil {
-		panic(err)
-	}
+
+	// err = os.WriteFile("./seriesinfo.json", data, 0644)
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 	fmt.Println(string(data))
+
+	return data
 }
