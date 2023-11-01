@@ -23,7 +23,8 @@ func main() {
 	case 1:
 		seriesname := Fixture.SearchBySeries()
 		CrawlUrl := Fixture.ScrapforSeries(seriesname)
-		Fixture.CrawlerForSeries(CrawlUrl)
+		data:=Fixture.CrawlerForSeries(CrawlUrl)
+		Fixture.SaveToJson(data)
 	case 2:
 		CrawlURL, Teamname := crawler.ScrapforTeam()
 		Fixture.ByTeamInternational(Teamname, CrawlURL)
