@@ -150,3 +150,188 @@
 // // 	}
 // // 	fmt.Println(string(data1))
 // // }
+
+// =========================================================
+
+// package Fixture
+
+// import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"os"
+	"strconv"
+
+	"github.com/gocolly/colly/v2"
+// )
+
+// type Series struct {
+// 	Name string `json:"series,omitempty"`
+// 	URL  string `json:"url,omitempty"`
+// }
+
+// type SeriesInfo struct {
+// 	Series string `json:"series"`
+// 	URL    string `json:"url"`
+// }
+
+// func SearchBySeries() {
+// 	CrawlUrl := "https://www.espncricinfo.com/ci/content/match/fixtures_futures.html"
+// 	c := colly.NewCollector()
+	// var tours []struct {
+	// 	Name string
+	// 	Link string
+	// }
+	// tours := []Series{}
+
+	// c.OnHTML("div[class=fixfutures]", func(h *colly.HTMLElement) {
+	// future := h.ChildText("#second , .divleft , #second li #second a")
+	// fmt.Println(future)
+	// future1 := h.ChildText("#second , .divleft  ")
+	// fmt.Println(future1)
+	// link1 := h.ChildText("#second , .divleft , #second li #second a li:nth-child(19)")
+	// fmt.Println(link1)
+	// name := h.ChildText("li:nth-child(18) a")
+	// fmt.Println(name)
+	// link := h.ChildAttr("li:nth-child(6) a", "href")
+	// fmt.Println(link)
+	// })
+
+	c.OnHTML(".divright > ul", func(h *colly.HTMLElement) {
+		// future := h.ChildText("li:nth-child(1)")
+
+		var index int = 0
+		for i := 0; i < 7; i++ {
+			stat := "li:nth-child(" + strconv.Itoa(index) + ")"
+			stat1 := "li:nth-child(" + strconv.Itoa(index) + ") a"
+			future1 := h.ChildText(stat)
+			// fmt.Println(future1)
+			future := h.ChildAttr(stat1, "href")
+			// fmt.Println(future)
+
+			// tour := struct {
+			// 	Name string
+			// 	Link string
+			// }{
+			tour := Series{
+				Name: future1,
+				URL:  future,
+			}
+			tours = append(tours, tour)
+
+			index++
+		}
+
+		data1, err := json.MarshalIndent(tours, " ", "")
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		err = os.WriteFile("./series.json", data1, 0644)
+		if err != nil {
+			panic(err)
+		}
+
+		// fmt.Println(string(data1))
+
+		var seriesData []SeriesInfo
+		err = json.Unmarshal([]byte(data1), &seriesData)
+		if err != nil {
+			fmt.Println("Error parsing JSON:", err)
+			return
+		}
+
+		var filteredData []SeriesInfo
+		for _, series := range seriesData {
+			if series.Series != "" || series.URL != "" {
+				filteredData = append(filteredData, series)
+			}
+		}
+
+		filteredJSON, err := json.MarshalIndent(filteredData, " ", "")
+		if err != nil {
+			fmt.Println("Error serializing JSON:", err)
+			return
+		}
+
+		// fmt.Println(string(filteredJSON))
+
+		err = os.WriteFile("./series.json", filteredJSON, 0644)
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Println(filteredData[2].Series)
+		fmt.Println(filteredData[2].URL)
+
+		// fmt.Println(seriesData)
+
+		for i, info := range filteredData {
+			fmt.Printf("%v Series: %s \n", i+1, info.Series)
+		}
+
+		// future1 := h.ChildAttr("li>a", "href")
+		// fmt.Println(future1)
+		// tourna := h.Text
+		// fmt.Println(tourna)
+		// link := h.ChildAttr(".tab-text-web a ", "#first li")
+		// fmt.Println(link)
+	})
+	// var links []Series
+	// c.OnHTML(".divright > ul", func(h *colly.HTMLElement) {
+	// 	h.ForEach("li", func(i int, h *colly.HTMLElement) {
+	// 		e := Series{
+	// 			Name: h.ChildText("li:nth-child(1)"),
+	// 			URL:  h.ChildAttr("li:nth-child(1) a", "href"),
+	// 		}
+	// 		links = append(links, e)
+	// 	})
+
+	// fmt.Println(links)
+	// future1 := h.ChildText("li:nth-child(3)")
+	// fmt.Println(future1)
+	// future := h.ChildAttr("li:nth-child(2) a", "href")
+	// fmt.Println(future)
+	// future1 := h.ChildAttr("li>a", "href")
+	// fmt.Println(future1)
+	// tourna := h.Text
+	// fmt.Println(tourna)
+	// link := h.ChildAttr(".tab-text-web a ", "#first li")
+	// fmt.Println(link)
+	// })
+
+	// c.OnHTML("#second , .divright , h2:contains('International Tours')", func(h *colly.HTMLElement) {
+
+	// future := h.ChildText("li:nth-child(21)")
+	// fmt.Println(future)
+	// tourna := h.Text
+	// fmt.Println(tourna)
+	// link := h.ChildAttr("a", "href")
+	// fmt.Println(link)
+	// link := h.Attr("href")
+	// fmt.Println(link)
+	// future1 := h.ChildAttr("li:nth-child(1) a", "href")
+	// fmt.Println(future1)
+	// future := h.ChildText(h.Text)
+	// fmt.Println(future)
+	// link := h.ChildAttr(".tab-text-web a ", "#first li")
+	// fmt.Println(link)
+	// })
+
+	// c.OnError(func(r *colly.Response, err error) {
+	// 	fmt.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
+	// })
+
+	// err := c.Visit(CrawlUrl)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// data, err := json.MarshalIndent(links, " ", "")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// fmt.Println(string(data))
+
+}
