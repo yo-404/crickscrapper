@@ -1,4 +1,4 @@
-package international
+package Fixture
 
 import (
 	"encoding/json"
