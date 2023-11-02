@@ -1,33 +1,45 @@
 package Fixture
 
-func SaveToJson(){
+import (
+	"fmt"
+	"os"
+	"strings"
+)
+
+func SaveToJson(data []byte) {
 	var choice string
 	var filename string
-	fmt.Println("Would you like to save the following data as JSON")
-	fmt.Println("Yes")
-	fmt.Println("No")
+	fmt.Println("\n \n =================================================\n ")
+	fmt.Println("Would you like to save the following data as JSON (y/n)")
+	fmt.Scan(&choice)
 
-	switch choice{
-
-	case "y","Y","YES","yes":
+	switch choice {
+	case "y", "Y", "YES", "yes":
 		fmt.Println("Please enter the file name ")
 		fmt.Scan(&filename)
-		prefix:="./"
-		file:= prefix+filename
+		prefix := "./"
+		file := prefix + filename
 		suffix := ".json"
-		if !strings.HasSuffix(file,suffix)
-		file1 := file + suffix
-		err = os.WriteFile(file1, data, 0644)
-		fmt.Printf("File SUccessfully saved in the S./ directory as %v",file)
+		filename := HasSuffix(file, suffix)
+		file1 := strings.TrimPrefix(filename, "./")
+		err := os.WriteFile(filename, data, 0644)
+		fmt.Printf("File Successfully saved in the ./ directory as %v \n \n ", file1)
 		if err != nil {
-		panic(err)
+			panic(err)
 		}
-	case "n","N","NO","no":
-		Exit(1)
-	
+	case "n", "N", "NO", "no":
+		fmt.Println("OKAY..Closing now ...")
+		return
 
 	default:
-	fmt.Println("Please input a valid choice!!")
-	
+		fmt.Println("Please input a valid choice!!")
+
 	}
+}
+
+func HasSuffix(filename string, suffix string) string {
+	if !strings.HasSuffix(filename, suffix) {
+		filename = filename + suffix
+	}
+	return filename
 }

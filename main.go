@@ -23,14 +23,16 @@ func main() {
 	case 1:
 		seriesname := Fixture.SearchBySeries()
 		CrawlUrl := Fixture.ScrapforSeries(seriesname)
-		data:=Fixture.CrawlerForSeries(CrawlUrl)
+		data := Fixture.CrawlerForSeries(CrawlUrl)
 		Fixture.SaveToJson(data)
 	case 2:
-		CrawlURL, Teamname := crawler.ScrapforTeam()
-		Fixture.ByTeamInternational(Teamname, CrawlURL)
+		CrawlURL := crawler.ScrapforTeam()
+		data := Fixture.ByTeamInternational(CrawlURL)
+		Fixture.SaveToJson(data)
 	case 3:
-		CrawlURL:="https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856/match-schedule-fixtures-and-results"
-		Fixture.CrawlerForSeries(CrawlURL)
+		CrawlURL := "https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856/match-schedule-fixtures-and-results"
+		data := Fixture.CrawlerForSeries(CrawlURL)
+		Fixture.SaveToJson(data)
 
 	default:
 		fmt.Println("More Options comming soon ..Till then pls work out with the above options")
