@@ -12,20 +12,10 @@ import (
 	model "github.com/yo-404/crickscrapper/Model"
 )
 
-type Series struct {
-	Name string `json:"series,omitempty"`
-	URL  string `json:"url,omitempty"`
-}
-
-type SeriesInfo struct {
-	Series string `json:"series"`
-	URL    string `json:"url"`
-}
-
 func SearchBySeries() string {
 	CrawlUrl := "https://www.espncricinfo.com/ci/content/match/fixtures_futures.html"
 	c := colly.NewCollector()
-	tours := []Series{}
+	tours := []model.Series{}
 
 	c.OnHTML(".divright > ul", func(h *colly.HTMLElement) {
 
@@ -37,7 +27,7 @@ func SearchBySeries() string {
 			future1 := h.ChildText(stat)
 			future := h.ChildAttr(stat1, "href")
 
-			tour := Series{
+			tour := model.Series{
 				Name: future1,
 				URL:  future,
 			}
@@ -62,14 +52,14 @@ func SearchBySeries() string {
 		log.Fatal(err)
 	}
 
-	var seriesData []SeriesInfo
+	var seriesData []model.SeriesInfo
 	err = json.Unmarshal([]byte(data1), &seriesData)
 	if err != nil {
 		fmt.Println("Error parsing JSON:", err)
 		// return
 	}
 
-	var filteredData []SeriesInfo
+	var filteredData []model.SeriesInfo
 	for _, series := range seriesData {
 		if series.Series != "" || series.URL != "" {
 			filteredData = append(filteredData, series)
@@ -79,10 +69,8 @@ func SearchBySeries() string {
 	filteredJSON, err := json.MarshalIndent(filteredData, " ", "")
 	if err != nil {
 		fmt.Println("Error serializing JSON:", err)
-		// return
-	}
 
-	// fmt.Println(string(filteredJSON))
+	}
 
 	err = os.WriteFile("./series.json", filteredJSON, 0644)
 	if err != nil {
@@ -119,13 +107,12 @@ func ScrapforSeries(seriesname string) string {
 
 }
 
-func CrawlerForSeries(CrawlUrl string) byte[]{
-	matches := []model.SeriesInfo{}
+func CrawlerForSeries(CrawlUrl string) []byte {
+	matches := []model.Matches{}
 	c := colly.NewCollector()
 	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
 		team1 := (h.ChildText(".ds-my-1:nth-child(1) p"))
 		teamx := (h.ChildText("div.ds-flex.ds-items-center.ds-min-w-0.ds-mr-1>p"))
-		// teamx := h.ChildAttr("div.ds-flex.ds-items-center.ds-min-w-0.ds-mr-1", "title")
 		team2 := strings.ReplaceAll(teamx, team1, "")
 		result := h.ChildText("span.ds-text-tight-xs")
 		if result == "RESULT" {
@@ -148,7 +135,7 @@ func CrawlerForSeries(CrawlUrl string) byte[]{
 		score := h.ChildText("div.ds-text-compact-s.ds-text-typo.ds-text-right.ds-whitespace-nowrap")
 		score1 := strings.ReplaceAll(score, "&", "  ")
 
-		i := model.SeriesInfo{
+		i := model.Matches{
 			Date:       h.ChildText("div.ds-text-compact-xs.ds-font-bold.ds-w-24"),
 			Type:       h.ChildText("span.ds-text-tight-s.ds-font-medium.ds-text-typo"),
 			Tournament: h.ChildText("span.ds-text-tight-s.ds-font-regular.ds-text-typo.ds-underline.ds-decoration-ui-stroke"),
@@ -177,12 +164,6 @@ func CrawlerForSeries(CrawlUrl string) byte[]{
 	if err != nil {
 		log.Fatal(err)
 	}
-
-
-	// err = os.WriteFile("./seriesinfo.json", data, 0644)
-	// if err != nil {
-	// 	panic(err)
-	// }
 
 	fmt.Println(string(data))
 

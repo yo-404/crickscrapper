@@ -4,20 +4,20 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"os"
 	"strings"
 
 	"github.com/gocolly/colly/v2"
 	model "github.com/yo-404/crickscrapper/Model"
 )
 
-func ByTeamInternational(teamname string, CrawlUrl string) {
+func ByTeamInternational(CrawlUrl string) []byte {
 
 	matches := []model.Matches{}
 	c := colly.NewCollector()
 	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
-		team1 := (h.ChildText("div.ds-flex.ds-items-center.ds-min-w-0.ds-mr-1"))
-		team2 := strings.ReplaceAll(team1, teamname, "")
+		team1 := (h.ChildText(".ds-my-1:nth-child(1) p"))
+		teamx := (h.ChildText("div.ds-flex.ds-items-center.ds-min-w-0.ds-mr-1>p"))
+		team2 := strings.ReplaceAll(teamx, team1, "")
 		result := h.ChildText("span.ds-text-tight-xs")
 		if result == "RESULT" {
 			result = "RESULT DECLARED"
@@ -45,7 +45,8 @@ func ByTeamInternational(teamname string, CrawlUrl string) {
 			Result:     h.ChildText("p.ds-text-tight-s.ds-font-regular.ds-line-clamp-2.ds-text-typo"),
 			Score:      h.ChildText("div.ds-text-compact-s.ds-text-typo.ds-text-right.ds-whitespace-nowrap"),
 			Time:       result,
-			Opponent:   team2,
+			Team1:      team1,
+			Team2:      team2,
 		}
 
 		matches = append(matches, i)
@@ -66,11 +67,7 @@ func ByTeamInternational(teamname string, CrawlUrl string) {
 		log.Fatal(err)
 	}
 
-	err = os.WriteFile("./matches.json", data, 0644)
-	if err != nil {
-		panic(err)
-	}
-
 	fmt.Println(string(data))
+	return data
 
 }
