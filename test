@@ -335,3 +335,81 @@
 	// fmt.Println(string(data))
 
 }
+
+// ===============================================
+package Fixture
+
+import (
+	"fmt"
+
+	"github.com/xuri/excelize/v2"
+	model "github.com/yo-404/crickscrapper/Model"
+)
+
+func SaveToXLSX(data []model.Matches) {
+
+	var choice string
+	var filename string
+	// users := data []model.Matches
+	fmt.Println("\n=================================================")
+	fmt.Println("Would you like to save the following data as XLSX (y/n)")
+	fmt.Scan(&choice)
+
+	switch choice {
+	case "y", "Y", "YES", "yes":
+		fmt.Println("Please enter the file name ")
+		fmt.Scan(&filename)
+		prefix := "./"
+		file := prefix + filename
+		suffix := ".xlsx"
+		filename := HasSuffix(file, suffix)
+		// file1 := strings.TrimPrefix(filename, "./")
+
+		xlsx := excelize.NewFile()
+
+		// Write the struct values to the XLSX file
+		xlsx.SetCellValue("Sheet1", "A1", "Type")
+		xlsx.SetCellValue("Sheet1", "B1", "Tournament")
+		xlsx.SetCellValue("Sheet1", "C1", "Location")
+		xlsx.SetCellValue("Sheet1", "D1", "Date")
+		xlsx.SetCellValue("Sheet1", "E1", "Result")
+		xlsx.SetCellValue("Sheet1", "F1", "Score")
+		xlsx.SetCellValue("Sheet1", "G1", "Time")
+		xlsx.SetCellValue("Sheet1", "H1", "Team1")
+		xlsx.SetCellValue("Sheet1", "I1", "Team2")
+
+		// Add data
+		for i, user := range data {
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("A%d", i+2), user.Type)
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("B%d", i+2), user.Tournament)
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("C%d", i+2), user.Location)
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("D%d", i+2), user.Date)
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("E%d", i+2), user.Result)
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("F%d", i+2), user.Score)
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("G%d", i+2), user.Time)
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("H%d", i+2), user.Team1)
+			xlsx.SetCellValue("Sheet1", fmt.Sprintf("I%d", i+2), user.Team1)
+
+		}
+		// Save the XLSX file
+		err := xlsx.SaveAs(filename)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
+		fmt.Println("Successfully stored struct values in XLSX file")
+	case "n", "N", "NO", "no":
+		fmt.Println("OKAY...Closing now ...")
+	default:
+		fmt.Println("Please input a valid choice!!")
+	}
+	// return err
+}
+
+// func HasSuffix(filename string, suffix string) string {
+// 	if !strings.HasSuffix(filename, suffix) {
+// 		filename = filename + suffix
+// 	}
+// 	return filename
+// }

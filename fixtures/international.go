@@ -10,7 +10,7 @@ import (
 	model "github.com/yo-404/crickscrapper/Model"
 )
 
-func ByTeamInternational(CrawlUrl string) []byte {
+func ByTeamInternational(CrawlUrl string) ([]byte, []model.Matches) {
 
 	matches := []model.Matches{}
 	c := colly.NewCollector()
@@ -68,6 +68,6 @@ func ByTeamInternational(CrawlUrl string) []byte {
 	}
 
 	fmt.Println(string(data))
-	return data
+	return data, matches
 
 }
