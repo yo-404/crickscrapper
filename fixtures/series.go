@@ -107,7 +107,7 @@ func ScrapforSeries(seriesname string) string {
 
 }
 
-func CrawlerForSeries(CrawlUrl string) []byte {
+func CrawlerForSeries(CrawlUrl string) ([]byte, []model.Matches) {
 	matches := []model.Matches{}
 	c := colly.NewCollector()
 	c.OnHTML("div[class=ds-flex]", func(h *colly.HTMLElement) {
@@ -167,5 +167,5 @@ func CrawlerForSeries(CrawlUrl string) []byte {
 
 	fmt.Println(string(data))
 
-	return data
+	return data, matches
 }
