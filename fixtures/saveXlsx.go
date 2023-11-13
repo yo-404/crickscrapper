@@ -2,6 +2,8 @@ package Fixture
 
 import (
 	"fmt"
+	"log"
+	"os"
 	"strings"
 
 	"github.com/tealeg/xlsx"
@@ -10,15 +12,22 @@ import (
 
 func SaveToXLSX(data []model.Matches) {
 
-	// var choice string
+	if _, err := os.Stat("output"); os.IsNotExist(err) {
+		err := os.MkdirAll("output", 0777)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("Directory created: output \n")
+	}
+
 	var filename string
 	fmt.Println("Please enter the file name ")
 	fmt.Scan(&filename)
-	prefix := "./"
+	prefix := "./output/"
 	file := prefix + filename
 	suffix := ".xlsx"
 	filename = HasSuffix(file, suffix)
-	file1 := strings.TrimPrefix(filename, "./")
+	file1 := strings.TrimPrefix(filename, "./output/")
 
 	// Create a new XLS file
 	xlsFile := xlsx.NewFile()
@@ -59,5 +68,5 @@ func SaveToXLSX(data []model.Matches) {
 		return
 	}
 
-	fmt.Printf("XLS file saved as '%s'", file1)
+	fmt.Printf("XLS file saved as '%s' in /output folder", file1)
 }
